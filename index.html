@@ -22,30 +22,72 @@
             transition: all 0.2s ease;
         }
 
-        .category-tag {
-            background-color: #1B1B4B;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
+        .news-tag {
+            background-color: rgba(27, 27, 75, 0.1);
+            color: #1B1B4B;
         }
 
-        .slider-dots button.active {
-            background-color: #CC0000;
+        .featured-news-card::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
         }
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Header (Same as other pages) -->
+    <!-- Header -->
     <header class="bg-[#1B1B4B] text-white">
-        <!-- Header content with navigation -->
+        <!-- Top Bar -->
+        <div class="bg-[#CC0000] py-2">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <div class="text-sm">
+                    Welcome to Our Club
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="text-sm hover:text-gray-200">Member Login</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Header -->
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="https://lynchypin.github.io/club-home-page/">
+                        <img src="https://placehold.co/150x60" alt="Club Logo" class="h-15">
+                    </a>
+                </div>
+                
+                <nav class="hidden md:flex gap-6">
+                    <a href="https://lynchypin.github.io/club-home-page/" class="club-nav-item py-2">Home</a>
+                    <a href="https://lynchypin.github.io/club-about-page/" class="club-nav-item py-2">About</a>
+                    <a href="https://lynchypin.github.io/club-teams-page/" class="club-nav-item py-2">Teams</a>
+                    <a href="https://lynchypin.github.io/club-fixtures-page/" class="club-nav-item py-2">Fixtures</a>
+                    <a href="https://lynchypin.github.io/club-news-page/" class="club-nav-item py-2">News</a>
+                    <a href="https://lynchypin.github.io/club-shop-page/" class="club-nav-item py-2">Shop</a>
+                    <a href="https://lynchypin.github.io/club-sponsors-page/" class="club-nav-item py-2">Sponsors</a>
+                    <a href="https://lynchypin.github.io/club-contact-page/" class="club-nav-item py-2">Contact</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-16 6h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </header>
 
     <!-- Page Title Section -->
     <div class="bg-[#1B1B4B] text-white py-12">
         <div class="container mx-auto px-4">
-            <h1 class="text-4xl font-bold">Club News</h1>
-            <nav class="mt-4 text-sm" aria-label="Breadcrumb">
+            <h1 class="text-4xl font-bold mb-4">Club News</h1>
+            <nav class="text-sm" aria-label="Breadcrumb">
                 <ol class="list-none p-0 inline-flex">
                     <li class="flex items-center">
                         <a href="https://lynchypin.github.io/club-home-page/">Home</a>
@@ -59,119 +101,66 @@
         </div>
     </div>
 
-    <!-- Featured News Slider -->
-    <section class="relative bg-gray-900">
-        <div class="container mx-auto px-4 py-8">
-            <div class="relative h-[500px] overflow-hidden rounded-lg">
-                <!-- Slider content -->
-                <div class="absolute inset-0">
-                    <img src="https://placehold.co/1200x500" alt="Featured News" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-                        <span class="category-tag mb-4">Match Report</span>
-                        <h2 class="text-3xl font-bold mb-4">Championship Final Victory</h2>
-                        <p class="mb-4">Our club secured a historic win in the county championship final...</p>
-                        <a href="#" class="inline-block bg-[#CC0000] text-white px-6 py-2 rounded-lg hover:bg-red-700">
-                            Read More
-                        </a>
-                    </div>
-                </div>
-                <!-- Slider navigation -->
-                <div class="absolute bottom-4 right-4 flex space-x-2 slider-dots">
-                    <button class="w-3 h-3 rounded-full bg-white active"></button>
-                    <button class="w-3 h-3 rounded-full bg-white opacity-50"></button>
-                    <button class="w-3 h-3 rounded-full bg-white opacity-50"></button>
+    <!-- Featured News -->
+    <section class="py-12">
+        <div class="container mx-auto px-4">
+            <div class="relative rounded-lg overflow-hidden featured-news-card h-[400px]">
+                <img src="https://placehold.co/1200x400" alt="Featured News" class="w-full h-full object-cover">
+                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+                    <span class="inline-block px-3 py-1 bg-[#CC0000] rounded-full text-sm mb-4">Breaking News</span>
+                    <h2 class="text-3xl font-bold mb-2">Senior Team Clinches Semi-Final Spot</h2>
+                    <p class="mb-4">A thrilling victory secures our place in the championship semi-finals...</p>
+                    <a href="#" class="inline-block bg-white text-[#1B1B4B] px-6 py-2 rounded-lg hover:bg-gray-100">
+                        Read More
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- News Categories -->
-    <section class="py-8">
+    <section class="py-6">
         <div class="container mx-auto px-4">
             <div class="flex flex-wrap gap-4 justify-center">
-                <a href="#" class="px-6 py-2 bg-[#1B1B4B] text-white rounded-full hover:bg-[#CC0000]">
-                    All News
-                </a>
-                <a href="#" class="px-6 py-2 bg-gray-200 rounded-full hover:bg-[#CC0000] hover:text-white">
+                <button class="px-6 py-2 rounded-lg bg-[#1B1B4B] text-white">All News</button>
+                <button class="px-6 py-2 rounded-lg border border-[#1B1B4B] hover:bg-[#1B1B4B] hover:text-white">
                     Match Reports
-                </a>
-                <a href="#" class="px-6 py-2 bg-gray-200 rounded-full hover:bg-[#CC0000] hover:text-white">
-                    Club News
-                </a>
-                <a href="#" class="px-6 py-2 bg-gray-200 rounded-full hover:bg-[#CC0000] hover:text-white">
+                </button>
+                <button class="px-6 py-2 rounded-lg border border-[#1B1B4B] hover:bg-[#1B1B4B] hover:text-white">
+                    Youth News
+                </button>
+                <button class="px-6 py-2 rounded-lg border border-[#1B1B4B] hover:bg-[#1B1B4B] hover:text-white">
+                    Club Events
+                </button>
+                <button class="px-6 py-2 rounded-lg border border-[#1B1B4B] hover:bg-[#1B1B4B] hover:text-white">
                     Community
-                </a>
-                <a href="#" class="px-6 py-2 bg-gray-200 rounded-full hover:bg-[#CC0000] hover:text-white">
-                    Youth
-                </a>
+                </button>
             </div>
         </div>
     </section>
 
     <!-- Latest News Grid -->
-    <section class="py-8">
+    <section class="py-12">
         <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8">Latest News</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- News Card -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden news-card">
-                    <img src="https://placehold.co/400x250" alt="News" class="w-full">
+                <article class="bg-white rounded-lg shadow-md overflow-hidden news-card">
+                    <img src="https://placehold.co/400x250" alt="News Image" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <span class="category-tag mb-4">Club News</span>
-                        <h3 class="text-xl font-bold mb-2">New Training Facilities</h3>
-                        <p class="text-gray-600 mb-4">Club announces plans for state-of-the-art training facilities...</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="news-tag px-3 py-1 rounded-full text-sm">Match Report</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">
+                            <a href="#" class="hover:text-[#CC0000]">Under-21s Secure League Title</a>
+                        </h3>
+                        <p class="text-gray-600 mb-4">Our Under-21 team has clinched the league title with an impressive victory...</p>
                         <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">Sept 25, 2025</span>
-                            <a href="#" class="text-[#CC0000] hover:underline">Read More →</a>
+                            <span class="text-sm text-gray-500">April 23, 2025</span>
+                            <a href="#" class="text-[#CC0000] hover:underline">Read More</a>
                         </div>
                     </div>
-                </div>
-                <!-- Add more news cards -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Match Reports Section -->
-    <section class="py-8 bg-gray-100">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8">Match Reports</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Match Report Card -->
-                <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="text-sm text-gray-500">Sept 23, 2025</span>
-                            <span class="category-tag">Senior Championship</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-2">Our Club 2-15 vs 1-12 Other Team</h3>
-                        <p class="text-gray-600 mb-4">A comprehensive victory in the championship semi-final...</p>
-                        <a href="#" class="text-[#CC0000] hover:underline">Full Report →</a>
-                    </div>
-                </div>
-                <!-- Add more match reports -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Photo Gallery -->
-    <section class="py-8">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8">Photo Gallery</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- Gallery Image -->
-                <div class="relative overflow-hidden rounded-lg cursor-pointer">
-                    <img src="https://placehold.co/300x300" alt="Gallery" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span class="text-white">View Image</span>
-                    </div>
-                </div>
-                <!-- Add more gallery images -->
-            </div>
-            <div class="text-center mt-8">
-                <a href="#" class="inline-block bg-[#1B1B4B] text-white px-8 py-3 rounded-lg hover:bg-opacity-90">
-                    View All Photos
-                </a>
+                </article>
+                <!-- More news cards... -->
             </div>
         </div>
     </section>
@@ -181,12 +170,14 @@
         <div class="container mx-auto px-4">
             <div class="max-w-2xl mx-auto text-center">
                 <h2 class="text-3xl font-bold mb-4">Stay Updated</h2>
-                <p class="mb-6">Subscribe to our newsletter for the latest news and updates</p>
+                <p class="mb-8">Subscribe to our newsletter for the latest club news and updates</p>
                 <form class="flex gap-4">
-                    <input type="email" placeholder="Enter your email" 
-                           class="flex-1 px-4 py-3 rounded-lg text-black">
-                    <button type="submit" 
-                            class="bg-[#CC0000] px-6 py-3 rounded-lg hover:bg-red-700">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email" 
+                        class="flex-1 px-4 py-2 rounded-lg text-black"
+                    >
+                    <button type="submit" class="bg-[#CC0000] px-6 py-2 rounded-lg hover:bg-red-700">
                         Subscribe
                     </button>
                 </form>
@@ -194,68 +185,47 @@
         </div>
     </section>
 
-    <!-- Sidebar (Recent Posts, Categories, Archive) -->
-    <aside class="py-8 bg-gray-100">
+    <!-- Archive Section -->
+    <section class="py-12">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Recent Posts -->
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Recent Posts</h3>
-                    <ul class="space-y-4">
-                        <li>
-                            <a href="#" class="flex items-center">
-                                <img src="https://placehold.co/80x80" alt="Post" class="w-20 h-20 rounded-lg mr-4">
-                                <div>
-                                    <h4 class="font-bold">Youth Development Update</h4>
-                                    <span class="text-sm text-gray-500">Sept 22, 2025</span>
-                                </div>
-                            </a>
-                        </li>
-                        <!-- Add more recent posts -->
-                    </ul>
-                </div>
-
-                <!-- Categories -->
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Categories</h3>
+            <h2 class="text-3xl font-bold mb-8">News Archive</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Archive Month -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="font-bold mb-4">April 2025</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a href="#" class="flex justify-between items-center">
-                                <span>Match Reports</span>
-                                <span class="bg-gray-200 px-2 rounded-full text-sm">15</span>
+                            <a href="#" class="text-gray-600 hover:text-[#CC0000]">
+                                Semi-Final Victory (23 Apr)
                             </a>
                         </li>
-                        <!-- Add more categories -->
-                    </ul>
-                </div>
-
-                <!-- Archive -->
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Archive</h3>
-                    <ul class="space-y-2">
                         <li>
-                            <a href="#" class="flex justify-between items-center">
-                                <span>September 2025</span>
-                                <span class="bg-gray-200 px-2 rounded-full text-sm">8</span>
+                            <a href="#" class="text-gray-600 hover:text-[#CC0000]">
+                                Youth Training Update (15 Apr)
                             </a>
                         </li>
-                        <!-- Add more archive months -->
+                        <!-- More archive items... -->
                     </ul>
                 </div>
+                <!-- More archive months... -->
             </div>
         </div>
-    </aside>
+    </section>
 
-    <!-- Footer (Same as other pages) -->
+    <!-- Footer -->
     <footer class="bg-[#1B1B4B] text-white pt-12 pb-6">
-        <!-- Footer content -->
+        <!-- Footer content same as other pages -->
     </footer>
 
-    <!-- JavaScript for slider and gallery -->
+    <!-- JavaScript for mobile menu -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Slider functionality would go here
-            // Gallery popup functionality would go here
+            const mobileMenuButton = document.querySelector('.md\\:hidden');
+            const mobileMenu = document.querySelector('.md\\:flex');
+            
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
         });
     </script>
 </body>
